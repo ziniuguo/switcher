@@ -159,7 +159,7 @@ public class Switcher extends JFrame {
             });
 
             JButton killButton = new JButton(Constants.KILL_BUTTON);
-            resetButton.addActionListener(e -> GameController.killProcess());
+            killButton.addActionListener(e -> GameController.killProcess());
 
             setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
             versionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
