@@ -23,14 +23,19 @@ public class Constants {
                     "\r\nThe older version keeps those two defaultargs.dll files as static resources which may become invalid after game updates." +
                     "\r\nNow, you only need to reset to fetch the newer files after upgrading the game, instead of waiting for developes" +
                     "\r\nto fix the switcher."
-
             ;
+    public static final String APP_TITLE = "R6 Steam/Uplay version switcher";
     public static final String SET_STEAM_BUTTON = "1. Set Steam version";
     public static final String SWITCH_STEAM_BUTTON = "Switch to Steam version";
+    public static final String STEAM_DAT_LITERAL = "steam.dat";
     public static final String SET_UPLAY_BUTTON = "2. Set Uplay version";
     public static final String SWITCH_UPLAY_BUTTON = "Switch to Uplay version";
-    public static final String RESET_BUTTON = "Not working? Click here to reset";
-    public static final String SET_STEAM_INFO_MESSAGE = "In the next step, please select your steam game installation folder. Before proceeding, please make sure that the current game installed is steam version. You can do this by verifying game file integrity in steam.";
+    public static final String UPLAY_DAT_LITERAL = "uplay.dat";
+    public static final String RESET_BUTTON = "Reset";
+    public static final String KILL_BUTTON = "Kill R6 and Uplay process";
+    public static final String SET_STEAM_INFO_MESSAGE = "In the next step, please select your steam game installation folder. " +
+            "\r\nBefore proceeding, please make sure that the current game installed is steam version. " +
+            "\r\nYou can do this by verifying game file integrity in steam.";
     public static final String SET_UPLAY_INFO_MESSAGE = "Please uninstall Uplay version if you haven't done so, and then reinstall the game (Click \"Download\", not \"Locate installed game\"!) to the same folder where Steam version is installed. \r\n" +
             "Please note, you are supposed to see \"Discovering files\" when doing so, or you might have selected the wrong destination folder. \r\n" +
             "After doing these, click yes.";
@@ -39,6 +44,7 @@ public class Constants {
     public static final String NO_DLL_FILE_FOUND_WARNING = "Cannot locate defaultargs.dll";
     public static final String GAME_INTEGRITY_WARNING = "make sure you've selected the correct folder or verify game file integrity.";
     public static final String UNKNOWN_ERROR_MESSAGE = "An error occurred. Please try again";
+    public static final String ERROR_LITERAL = "Error";
     public static final String APP_HOME_DIR = System.getProperty("user.home")
             + "/AppData/Local/SwitcherByCatRoll/";
     public static final String GAME_DIR_LITERAL = "gameDir";

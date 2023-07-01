@@ -11,9 +11,9 @@ public class Application {
             @Override
             public void run() {
                 try {
-                    SwingApp swingApp = new SwingApp();
+                    Switcher switcher = new Switcher();
 
-                    swingApp.setVisible(true);
+                    switcher.setVisible(true);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
