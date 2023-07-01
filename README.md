@@ -27,3 +27,7 @@ to fix the switcher.
 
 ### Why java?
 I haven't learned .NET and I hate electron. I like Minecraft Java Edition.
+
+### Anything else I can do with this app?
+Yes. The two defaultargs.dll files of the current versions are provided in the release section. 
+If something goes wrong, just reset it manually by copy pasting the dlls to ```%HOME%/AppData/Local/SwitcherByCatRoll``` and your game installation folder.
