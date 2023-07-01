@@ -20,9 +20,10 @@ public class Constants {
                     "\r\nbetween two versions seamlessly." +
                     "\r\n" +
                     "\r\nWhat's new?" +
-                    "\r\nThe older version keeps those two defaultargs.dll files as static resources which may become invalid after game updates." +
-                    "\r\nNow, you only need to reset to fetch the newer files after upgrading the game, instead of waiting for developes" +
-                    "\r\nto fix the switcher."
+                    "\r\nThe older version keeps those two defaultargs.dll files as hardcoded static resources which may become invalid " +
+                    "\r\nafter game updates. Now, you only need to reset to fetch the newer files after upgrading the game, instead of " +
+                    "\r\nwaiting for developers to fix the switcher."
+
             ;
     public static final String APP_TITLE = "R6 Steam/Uplay version switcher";
     public static final String SET_STEAM_BUTTON = "1. Set Steam version";
