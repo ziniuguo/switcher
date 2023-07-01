@@ -3,8 +3,10 @@ package io.catroll.switcher;
 import org.apache.commons.io.FileUtils;
 
 import javax.swing.*;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class GameController {
     private GameController() {}
@@ -17,16 +19,35 @@ public class GameController {
             Runtime.getRuntime().exec("taskkill /F /IM upc.exe");
             Runtime.getRuntime().exec("taskkill /F /IM RainbowSix.exe");
             Runtime.getRuntime().exec("taskkill /F /IM RainbowSix_Vulkan.exe");
-        } catch (IOException ioException) {
+            while (isProcessRunning("upc.exe")
+                    || isProcessRunning("RainbowSix.exe")
+                    || isProcessRunning("RainbowSix_Vulkan.exe") ) {
+                Thread.sleep(10);
+            }
+        } catch (IOException | InterruptedException exception) {
             JOptionPane.showMessageDialog(null,
-                    Constants.UNKNOWN_ERROR_MESSAGE +"\r\nlogs: \r\n" + ioException.getMessage(),
+                    Constants.UNKNOWN_ERROR_MESSAGE +"\r\nlogs: \r\n" + exception.getMessage(),
                     Constants.ERROR_LITERAL, JOptionPane.ERROR_MESSAGE);
-            ioException.printStackTrace();
+            exception.printStackTrace();
         }
     }
 
+    public static boolean isProcessRunning(String serviceName)
+            throws IOException {
+        Process p = Runtime.getRuntime().exec("tasklist");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(
+                p.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains(serviceName)) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
     public static void switchSteamVersion() {
-        killProcess();
         try {
             FileUtils.copyFile(new File(Constants.APP_HOME_DIR, Constants.STEAM_DAT_LITERAL),
                     new File(Switcher.gameDir, Constants.DLL_FILE_NAME));
@@ -41,7 +62,6 @@ public class GameController {
     }
 
     public static void switchUplayVersion() {
-        killProcess();
         try {
             FileUtils.copyFile(new File(Constants.APP_HOME_DIR, Constants.UPLAY_DAT_LITERAL),
                     new File(Switcher.gameDir, Constants.DLL_FILE_NAME));

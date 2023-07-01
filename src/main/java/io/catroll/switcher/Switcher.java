@@ -109,6 +109,7 @@ public class Switcher extends JFrame {
 
             JButton switchSteamButton = new JButton(Constants.SWITCH_STEAM_BUTTON);
             switchSteamButton.addActionListener(e -> {
+                GameController.killProcess();
                 GameController.switchSteamVersion();
                 versionLabel.setText("Current version detected: Steam");
                 currVersion = GameController.STEAM_VERSION;
@@ -116,6 +117,7 @@ public class Switcher extends JFrame {
 
             JButton launchSteamButton = new JButton(Constants.SWITCH_STEAM_BUTTON + "\r\n and launch");
             launchSteamButton.addActionListener(e -> {
+                GameController.killProcess();
                 if (currVersion != GameController.STEAM_VERSION) {
                     GameController.switchSteamVersion();
                     versionLabel.setText("Current version detected: Steam");
@@ -126,6 +128,7 @@ public class Switcher extends JFrame {
 
             JButton switchUplayButton = new JButton(Constants.SWITCH_UPLAY_BUTTON);
             switchUplayButton.addActionListener(e -> {
+                GameController.killProcess();
                 GameController.switchUplayVersion();
                 versionLabel.setText("Current version detected: Uplay");
                 currVersion = GameController.UPLAY_VERSION;
@@ -133,6 +136,7 @@ public class Switcher extends JFrame {
 
             JButton launchUplayButton = new JButton(Constants.SWITCH_UPLAY_BUTTON + "\r\n and launch");
             launchUplayButton.addActionListener(e -> {
+                GameController.killProcess();
                 if (currVersion != GameController.UPLAY_VERSION) {
                     GameController.switchUplayVersion();
                     versionLabel.setText("Current version detected: Uplay");
